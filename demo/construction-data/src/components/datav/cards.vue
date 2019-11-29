@@ -1,10 +1,6 @@
 <template>
   <div id="cards">
-    <div
-      class="card-item"
-      v-for="(card, i) in cards"
-      :key="card.title"
-    >
+    <div class="card-item" v-for="(card, i) in cards" :key="card.title">
       <div class="card-header">
         <div class="card-header-left">{{ card.title }}</div>
         <div class="card-header-right">{{ '0' + (i + 1) }}</div>
@@ -12,15 +8,15 @@
       <dv-charts class="ring-charts" :option="card.ring" />
       <div class="card-footer">
         <div class="card-footer-item">
-          <div class="footer-title">累计金额</div>
+          <div class="footer-title">订单数量</div>
           <div class="footer-detail">
-            <dv-digital-flop :config="card.total" style="width:70%;height:35px;" />元
+            <dv-digital-flop :config="card.total" style="width:70%;height:35px;" />
           </div>
         </div>
         <div class="card-footer-item">
-          <div class="footer-title">巡查病害</div>
+          <div class="footer-title">完成数量</div>
           <div class="footer-detail">
-            <dv-digital-flop :config="card.num" style="width:70%;height:35px;" />处
+            <dv-digital-flop :config="card.num" style="width:70%;height:35px;" />
           </div>
         </div>
       </div>
@@ -39,11 +35,11 @@ export default {
   methods: {
     createData () {
       const { randomExtend } = this
-
+      let titleArray = ['工段一', '工段二', '工段三', '工段四', '工段五']
       this.cards = new Array(5).fill(0).map((foo, i) => ({
-        title: '测试路段' + (i + i),
+        title: titleArray[i],
         total: {
-          number: [randomExtend(9000, 10000)],
+          number: [randomExtend(300, 500)],
           content: '{nt}',
           textAlign: 'right',
           style: {
@@ -52,7 +48,7 @@ export default {
           }
         },
         num: {
-          number: [randomExtend(30, 60)],
+          number: [randomExtend(100, 250)],
           content: '{nt}',
           textAlign: 'right',
           style: {
@@ -68,9 +64,7 @@ export default {
               endAngle: Math.PI * 1.5,
               arcLineWidth: 13,
               radius: '80%',
-              data: [
-                { name: '资金占比', value: randomExtend(40, 60) }
-              ],
+              data: [{ name: '资金占比', value: randomExtend(40, 60) }],
               axisLabel: {
                 show: false
               },
@@ -87,7 +81,7 @@ export default {
               },
               details: {
                 show: true,
-                formatter: '资金占比{value}%',
+                formatter: '完成率{value}%',
                 style: {
                   fill: '#1ed3e5',
                   fontSize: 20
@@ -125,7 +119,7 @@ export default {
 
   .card-item {
     background-color: rgba(6, 30, 93, 0.5);
-    border-top: 2px solid rgba(1, 153, 209, .5);
+    border-top: 2px solid rgba(1, 153, 209, 0.5);
     width: 19%;
     display: flex;
     flex-direction: column;

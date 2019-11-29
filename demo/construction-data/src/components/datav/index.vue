@@ -1,14 +1,13 @@
 <template>
   <div id="data-view">
     <dv-full-screen-container>
-
       <top-header />
 
       <div class="main-content">
-        <digital-flop />
+        <!-- <digital-flop /> -->
 
         <div class="block-left-right-content">
-          <ranking-board />
+          <!-- <ranking-board /> -->
 
           <div class="block-top-bottom-content">
             <div class="block-top-content">
@@ -28,20 +27,20 @@
 </template>
 
 <script>
-import topHeader from './topHeader'
-import digitalFlop from './digitalFlop'
-import rankingBoard from './rankingBoard'
-import roseChart from './roseChart'
-import waterLevelChart from './waterLevelChart'
-import scrollBoard from './scrollBoard'
-import cards from './cards'
+import topHeader from './topHeader';
+// import digitalFlop from './digitalFlop'
+// import rankingBoard from './rankingBoard'
+import roseChart from './roseChart';
+import waterLevelChart from './waterLevelChart';
+import scrollBoard from './scrollBoard';
+import cards from './cards';
 
 export default {
   name: 'DataView',
   components: {
     topHeader,
-    digitalFlop,
-    rankingBoard,
+    // digitalFlop,
+    // rankingBoard,
     roseChart,
     waterLevelChart,
     scrollBoard,
@@ -62,7 +61,7 @@ export default {
   color: #fff;
 
   #dv-full-screen-container {
-    background-image: url('./img/bg.png');
+    background-image: url("./img/bg.png");
     background-size: 100% 100%;
     box-shadow: 0 0 3px blue;
     display: flex;
@@ -86,7 +85,7 @@ export default {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    padding-left: 20px;
+    // padding-left: 20px;
   }
 
   .block-top-content {
